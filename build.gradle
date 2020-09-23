@@ -16,7 +16,7 @@ plugins {
 }
 
 group = "com.hylamobile"
-version = "0.0.2-SNAPSHOT"
+version = "0.0.3-SNAPSHOT"
 
 voorhees {
     packagesToScan = ["com.hylamobile.voorhees.example"]
