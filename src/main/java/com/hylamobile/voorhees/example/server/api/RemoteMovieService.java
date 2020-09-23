@@ -42,6 +42,25 @@ public class RemoteMovieService {
         throw new NotFoundException("Movie not found", title);
     }
 
+    public Movie changeTitle(String oldTitle, String newTitle) {
+        if (newTitle == null) {
+            throw new NullObjectException("Title should be defined", newTitle);
+        }
+
+        if (oldTitle == null) {
+            throw new NullObjectException("Title should be defined", oldTitle);
+        }
+
+        for (Movie movie : movieStorage.getMovies()) {
+            if (movie.getTitle().equals(oldTitle)) {
+                movie.setTitle(newTitle);
+                return movie;
+            }
+        }
+
+        throw new NotFoundException("Movie not found", oldTitle);
+    }
+
     public List<String> listMovieTitles() {
         return movieStorage.getMovies().stream()
                 .map(Movie::getTitle)
